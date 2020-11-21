@@ -1,0 +1,23 @@
+{
+  "name": "pharma-net-chaincode",
+  "version": "1.0.0",
+  "description": "Chaincode for pharma fabric network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-manufacturer": "fabric-chaincode-node start --peer.address peer0.manufacturer.pharma-network.com:7053 --chaincode-id-name pharmanet:1.1",
+    "start-distributor": "fabric-chaincode-node start --peer.address peer0.distributor.pharma-network.com:9053 --chaincode-id-name pharmanet:1.1",
+    "start-retailer": "fabric-chaincode-node start --peer.address peer0.retailer.pharma-network.com:11053 --chaincode-id-name pharmanet:1.1",
+    "start-consumer": "fabric-chaincode-node start --peer.address peer0.consumer.pharma-network.com:13053 --chaincode-id-name pharmanet:1.1",
+    "start-transporter": "fabric-chaincode-node start --peer.address peer0.transporter.pharma-network.com:15053 --chaincode-id-name pharmanet:1.1",
+    "start": "fabric-chaincode-node start"
+  },
+  "author": "Ashlesh Sortee",
+  "license": "ISC",
+  "dependencies": {
+    "bytebuffer": "5.0.1",
+    "fabric-contract-api": "~1.4.2",
+    "fabric-shim": "~1.4.2",
+    "grpc": "^1.24.3"
+  }
+}
