@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "55fc12e8-52f1-48c9-a3f7-08a65ebc3c40",
+		"name": "History Track Down",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1-viewHistory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Paracetamol\",\n    \"serialNo\": \"001\",\n    \"organisationRole\": \"consumer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/viewHistory",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viewHistory"
+					]
+				},
+				"description": "The customer ‘Akash’ wishes to check the history of the paracetamol that he bought from ‘MedPlus’."
+			},
+			"response": []
+		},
+		{
+			"name": "2-viewDrugCurrentState",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Paracetamol\",\n    \"serialNo\": \"001\",\n    \"organisationRole\": \"manufacturer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/viewDrugCurrentState",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viewDrugCurrentState"
+					]
+				},
+				"description": "The customer 'Akash' wishes to check the current state of the paracetamol that he bought from ‘MedPlus’."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

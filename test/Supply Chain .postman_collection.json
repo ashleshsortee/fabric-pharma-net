@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "149286a7-4ef6-4f72-8d62-a0fbd2c84efe",
+		"name": "Supply Chain ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Part a-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"DIST001\",\n    \"sellerCRN\": \"MAN001\",\n    \"drugName\": \"Paracetamol\",\n    \"quantity\": \"3\",\n    \"organisationRole\": \"distributor\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createPO",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createPO"
+					]
+				},
+				"description": "Purchase Order raised by ‘VG Pharma’ to purchase 3 strips of paracetamol from ‘Sun Pharma’."
+			},
+			"response": []
+		},
+		{
+			"name": "Part a-2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"DIST001\",\n    \"drugName\": \"Paracetamol\",\n    \"listOfAssets\": \"Paracetamol:001,Paracetamol:002,Paracetamol:003\", \n    \"transporterCRN\": \"TRA001\",\n    \"organisationRole\": \"manufacturer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createShipment"
+					]
+				},
+				"description": "Shipment created by ‘Sun Pharma’ in response to the raised purchase order. ‘FedEx’ acts as the transporter."
+			},
+			"response": []
+		},
+		{
+			"name": "Part a-3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"DIST001\",\n    \"drugName\": \"Paracetamol\",\n    \"transporterCRN\": \"TRA001\",\n    \"organisationRole\": \"transporter\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/updateShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updateShipment"
+					]
+				},
+				"description": "‘FedEx’ delivers the shipment to ‘VG pharma’."
+			},
+			"response": []
+		},
+		{
+			"name": "Part b-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"RET002\",\n    \"sellerCRN\": \"DIST001\",\n    \"drugName\": \"Paracetamol\",\n    \"quantity\": \"2\",\n    \"organisationRole\": \"retailer\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createPO",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createPO"
+					]
+				},
+				"description": "Purchase Order raised by ‘MedPlus’ to purchase 2 strips of paracetamol from ‘VG Pharma’."
+			},
+			"response": []
+		},
+		{
+			"name": "Part b-2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"RET002\",\n    \"drugName\": \"Paracetamol\",\n    \"listOfAssets\": \"Paracetamol:001,Paracetamol:002\", \n    \"transporterCRN\": \"TRA002\",\n    \"organisationRole\": \"distributor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createShipment"
+					]
+				},
+				"description": "Shipment created by ‘VG Pharma’ in response to the raised purchase order. ‘Blue Dart’ acts as the transporter."
+			},
+			"response": []
+		},
+		{
+			"name": "Part b-3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"RET002\",\n    \"drugName\": \"Paracetamol\",\n    \"transporterCRN\": \"TRA002\",\n    \"organisationRole\": \"transporter\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/updateShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updateShipment"
+					]
+				},
+				"description": "‘Blue Dart’ delivers the shipment to ‘MedPlus’."
+			},
+			"response": []
+		},
+		{
+			"name": "Part c-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Paracetamol\",\n    \"serialNo\": \"001\",\n    \"retailerCRN\": \"RET002\",\n    \"customerAadhar\": \"AAD001\",\n    \"organisationRole\": \"retailer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/retailDrug",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"retailDrug"
+					]
+				},
+				"description": "A customer named ‘Akash’ with Aadhar Number 'AAD001'  buys 1 paracetamol strip from the retailer ‘MedPlus’."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
